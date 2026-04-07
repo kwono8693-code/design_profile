@@ -178,8 +178,10 @@ html{
     color: #191917;
     font-weight: 300;
 }
-.skills .common-frame .skill-grid .skill-grid-card span{
+.skill-grid-card .num{
     font-size: 1.2rem;
+    margin-bottom: .5rem;
+    display: block;
 }
 .skill-grid-card h3{
     font-size: 2rem;
