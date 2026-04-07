@@ -2,7 +2,9 @@ html{
     font-family: 'Pretendard', sans-serif;
     font-size: var(--basic-font-pc);
 }
-
+.mo{
+    display: none;
+}
 .demi{
     font-family: "demi";
     font-weight: 400;
@@ -192,6 +194,9 @@ html{
 
 
 @media (max-width:1440px){
+    html{
+        font-size: var(--basic-font-pad);
+    }
     .txt-box{
         width: auto;
     }
@@ -259,7 +264,7 @@ html{
     }
     .grid-box2 {
         gap: 1rem 1rem;
-        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-columns: 1fr 2fr 2fr;
     }
     .grid-box1 {
         gap: .5rem 0rem;
@@ -280,6 +285,12 @@ html{
 @media(max-width:768px){
     html{
         font-size: var(--basic-font-mobile);
+    }
+    .pc{
+        display: none;
+    }
+    .mo{
+        display: block;
     }
     .common-frame{
         width: auto;
@@ -339,6 +350,17 @@ html{
     .resume-left, .resume-right{
         margin: 0 1rem;
     }
+    .grid-box2 {
+        grid-template-columns: 2fr 1fr;
+        gap: .5rem 1rem;
+    }
+    .grid-box2>section:nth-of-type(3n+1){grid-column: 1/3;}
+    .skill-grid-card h3{
+        font-size: 1.5rem;
+    }
+    .mg{
+        margin-bottom: 1.5rem;
+    }
 }
 @media(max-width:400px){
     .hero h1{
@@ -352,10 +374,7 @@ html{
         grid-template-columns: 1fr 3fr;
         gap: .5rem 1rem;
     }
-    .grid-box2 {
-        grid-template-columns: 1fr 2fr 1fr;
-        gap: 1rem 1rem;
-    }
+
     .grid-box2 section{
         font-size: 11px;
     }
@@ -364,6 +383,9 @@ html{
     }
     .resume-left, .resume-right{
         margin: 0;
+    }
+    .grid-box2 {
+        gap: .5rem 1rem;
     }
     
 }
