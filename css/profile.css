@@ -12,8 +12,18 @@ html{
 ::-webkit-scrollbar-track{
     background-color: #fff;
 }
+.title1{
+    text-align: center;
+    font-weight: 600;
+    font-size: 50px;
+    margin-bottom: 3rem;
+    margin-top: 2rem;
+}
 .mo{
     display: none;
+}
+.profile{
+    margin: 5rem 0;
 }
 .demi{
     font-family: "demi";
@@ -147,25 +157,7 @@ html{
 .grid-wrap section{
     text-transform: initial;
 }
-.resume {
-    position: relative; /* 배경 글자의 기준점 설정 */
-    overflow: hidden;   /* 글자가 섹션 영역 밖으로 나가지 않게 차단 */
-}
 
-.resume::before {
-    /* 1. 내용 및 스타일 */
-    content: "About ME";
-    position: absolute;
-    font-size: 10vw;
-    font-weight: 900;
-    color: #fff;
-    white-space: nowrap;
-    opacity: .2;
-    top: 50%;
-    left: 50%;
-    z-index: 0; 
-    pointer-events: none;
-}
 .common-frame {
     position: relative;
     z-index: 1;
@@ -174,7 +166,6 @@ html{
     font-size: 5rem;
     line-height: 100%;
     margin-bottom: 1rem;
-    padding-top: 3rem;
 }
 .skill-grid{
     display: grid;
@@ -183,7 +174,7 @@ html{
     padding-top: 4rem;
 }
 .skill-grid .desc{
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     line-height: 1.6;
     color: #191917;
     font-weight: 300;
@@ -200,57 +191,10 @@ html{
     margin-bottom: 1rem;
 }
 .skills{
-    margin-bottom: 8rem;
-}
-.popup {
-    padding-top: 1rem;
-    background: url(../img/popup-bg.jpg) no-repeat 0 200px / 100% 500px;
-    color: #333;
-    margin-bottom: 10rem;
-}
-.popup h2{
-    font-size: 5rem;
-    margin-bottom: .5rem;
-}
-.popup-contents{
-    display: flex;
-    padding-top: 4rem;
-    gap: 8rem;
-}
-.pop-txt{
-    width: 450px;
-    padding-top: 3rem;
-    color: #fff;
-}
-.pop-station{
-    width: calc(100% - 430px - 177px);
-}
-.pop-txt h3{
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-    font-weight: 700;
-}
-.pop-txt h3+p{
-    font-size: .9rem;
+    margin-bottom: 5rem;
 }
 
-@media (max-width:1600px){
-    .popup-contents{
-        gap: 1rem;
-        padding-top: 2rem;
-    }
-    .pop-txt{
-        width: calc((100% - 1rem)/2);
-        padding-top: 3rem;
-    }
-    .pop-station {
-        width: calc((100% - 1rem)/2);
-        padding-top: 1rem;
-    }
-    .popup {
-        background: url(../img/popup-bg.jpg) no-repeat 0 200px / 100% 300px;
-    }
-}
+
 
 @media (max-width:1440px){
     html{
@@ -284,14 +228,8 @@ html{
     .grid-box2{
         grid-template-columns: 1fr 3fr 2fr;
     }
-    .popup {
-        background: url(../img/popup-bg.jpg) no-repeat 0 200px / 100% 250px;
-    }
-    
 }
-@media (max-width:1200px){
 
-}
 @media(max-width:1024px){
     html{
         font-size: var(--basic-font-pad);
@@ -345,10 +283,6 @@ html{
     .resume{
         height: auto;
         padding-bottom: 5rem;
-    }
-
-    .pop-station {
-        padding-top: 2rem;
     }
 }
 @media(max-width:768px){
@@ -427,37 +361,11 @@ html{
     .mg{
         margin-bottom: 1.5rem;
     }
-    .popup-contents{
-        flex-direction: column-reverse;
-    }
-    .pop-txt{
-        width: 100%;
-    }
-    .pop-station{
-        width: 100%;
-    }
-    .popup {
-        background: url(../img/popup-bg.jpg) no-repeat 0 120px / 100% 1000px;
-    }
-    .pop-txt {
-        padding-top: 1.5rem;
-    }
-    .popup h2 {
-        font-size: 3rem;
-    }
-        .pop-txt h3+p {
-        font-size: 1rem;
-        padding-bottom: 3rem;
-    }
-
 }
 
 @media (max-width:450px){
     .philo h2 {
         font-size: 30px;
-    }
-    .popup {
-        background: url(../img/popup-bg.jpg) no-repeat 0 180px / 100% 1000px;
     }
 }
 
