@@ -202,25 +202,28 @@ html{
 .skills{
     margin-bottom: 8rem;
 }
+
 .popup {
-    padding-top: 1rem;
-    background: url(../img/popup-bg.jpg) no-repeat 0 200px / 100% 500px;
-    color: #333;
-    margin-bottom: 10rem;
+    padding: 2rem 0;
+    color: #fff;
+    margin-bottom: 5rem;
+    background-color: #333;
 }
 .popup h2{
     font-size: 5rem;
     margin-bottom: .5rem;
 }
+.popup h2+p{
+    margin-bottom: 3rem;
+}
 .popup-contents{
     display: flex;
-    padding-top: 4rem;
     gap: 8rem;
 }
-.pop-txt{
+.pop-txt {
     width: 450px;
-    padding-top: 3rem;
     color: #fff;
+    align-self: center;
 }
 .pop-station{
     width: calc(100% - 430px - 177px);
@@ -232,24 +235,145 @@ html{
 }
 .pop-txt h3+p{
     font-size: .9rem;
+    margin-bottom: 1rem;
+}
+.pop-txt h3+p+p {
+    font-size: .9rem;
+}
+.popup-img-slider .swiper-wrapper{
+    transition-timing-function: linear;
 }
 
+.popup-txt-slider .swiper-slide{
+    background-color: #333;
+    height: 100%;
+}
+.poster-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 6rem;
+    gap: 5rem;
+    
+    /* 초기 페이드 인 준비 상태 */
+    opacity: 0;
+    transform: translateY(60px);
+    transition: all 0.9s ease-out;
+}
+
+/* 짝수 번째(2, 4번) 아이템 방향 반전 */
+.poster-item:nth-child(even) {
+    flex-direction: row-reverse;
+}
+.poster-item:nth-child(even) .poster-txt{
+    padding-right: 0;
+}
+.poster-item:nth-child(odd) .poster-img{
+    /* justify-items: flex-start; */
+}
+.poster-item:nth-child(odd){
+}
+.poster-item:nth-child(odd) .poster-txt{
+    flex: 1.2;
+}
+
+/* 화면 중앙에 들어올 때 나타나는 클래스 */
+.poster-item.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 이미지 영역 */
+.poster-img {
+    justify-items: center;
+    flex-shrink: 0;
+}
+.poster-img img {
+    height: auto;
+    display: block;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* 은은한 그림자 */
+}
+
+/* 텍스트 영역 */
+.poster-txt {
+    flex: 1.2;
+    justify-self: center;
+    padding-right: 10rem;
+
+}
+.poster-txt h3 {
+    font-size: 2.8rem;
+    margin-bottom: 25px;
+    font-weight: 800;
+    color: #111;
+    word-break: keep-all;
+}
+.poster-txt p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+    word-break: keep-all; /* 단어 단위 줄바꿈 적용 */
+}
+.poster::before {
+    content: "Poster";
+    position: sticky;
+    /* top: 20%; 대신 transform에서 시작 위치를 잡습니다 */
+    top: 10%; 
+    left: 50%;
+    font-size: 15vw;
+    font-weight: 900;
+    color: #333;
+    white-space: nowrap;
+    opacity: .05;
+    z-index: -1; 
+    pointer-events: none;
+    will-change: transform;
+    
+}
+.poster.pc h2{
+    font-size: 5rem;
+    margin-bottom: .5rem;
+}
+.poster.pc h2+p{
+    margin-bottom: 2rem;
+}
+.banner h2{
+    font-size: 5rem;
+}
+.banner h2+p{
+    margin-bottom: 1rem;
+}
+.banner{
+    padding:4rem 0;
+    background-color: #333;
+    color:#fff;
+    margin-top: 6rem;
+}
+.banner-slider h3{
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+.banner-txt{
+    margin-top: 1rem;
+    display: flex;
+}
+.banner-txt h3{
+    flex: 1;
+}
+.banner-txt p{
+    flex: 1 ;
+}
 @media (max-width:1600px){
     .popup-contents{
-        gap: 1rem;
-        padding-top: 2rem;
+        gap: 4rem;
     }
     .pop-txt{
-        width: calc((100% - 1rem)/2);
-        padding-top: 3rem;
+        width: calc((100% - 1rem)/3);
     }
     .pop-station {
-        width: calc((100% - 1rem)/2);
-        padding-top: 1rem;
+        width: calc((100% - 1rem)/3 * 2);
     }
-    .popup {
-        background: url(../img/popup-bg.jpg) no-repeat 0 200px / 100% 300px;
-    }
+
 }
 
 @media (max-width:1440px){
@@ -284,13 +408,23 @@ html{
     .grid-box2{
         grid-template-columns: 1fr 3fr 2fr;
     }
-    .popup {
-        background: url(../img/popup-bg.jpg) no-repeat 0 200px / 100% 250px;
+
+    .pop-txt {
+        width: calc((100% - 1rem)/3);
     }
     
 }
 @media (max-width:1200px){
+    .pop-txt{ 
+        width: calc((100% - 1rem)/2); 
+    }
+    .pop-station { 
+        width: calc((100% - 1rem)/2); 
+    }
 
+    .popup-contents {
+        gap: 2rem;
+    }
 }
 @media(max-width:1024px){
     html{
@@ -346,11 +480,24 @@ html{
         height: auto;
         padding-bottom: 5rem;
     }
-
-    .pop-station {
-        padding-top: 2rem;
+    .popup h2 {
+        font-size: 4rem;
+    }
+    .poster.pc h2 {
+        font-size: 4rem;
+    }
+    .banner h2 {
+        font-size: 4rem;
     }
 }
+
+@media(max-width:900px){
+    .popup {
+        padding: 3rem 0;
+    }
+}
+
+
 @media(max-width:768px){
     html{
         font-size: var(--basic-font-mobile);
@@ -429,6 +576,7 @@ html{
     }
     .popup-contents{
         flex-direction: column-reverse;
+        gap: 2rem;
     }
     .pop-txt{
         width: 100%;
@@ -436,29 +584,43 @@ html{
     .pop-station{
         width: 100%;
     }
-    .popup {
-        background: url(../img/popup-bg.jpg) no-repeat 0 120px / 100% 1000px;
-    }
-    .pop-txt {
-        padding-top: 1.5rem;
-    }
     .popup h2 {
         font-size: 3rem;
     }
-        .pop-txt h3+p {
+    .pop-txt h3+p {
         font-size: 1rem;
-        padding-bottom: 3rem;
     }
-
+    .poster h2{
+        font-size: 3rem;
+    }
+    .poster h2+p{
+        margin-bottom: 2rem;
+    }
+    .poster-txt h3{
+        font-size: 1.5rem;
+        margin: 2rem 0 .5rem;
+    }
+    .poster-txt p {
+        margin-bottom: 5rem;
+    }
+    .poster::before {
+        display: none;
+        
+    }
+    .banner h2 {
+        font-size: 3rem;
+    }
+    .banner-txt{
+        flex-direction: column;
+        gap: .5rem;
+    }
 }
 
 @media (max-width:450px){
     .philo h2 {
         font-size: 30px;
     }
-    .popup {
-        background: url(../img/popup-bg.jpg) no-repeat 0 180px / 100% 1000px;
-    }
+
 }
 
 @media(max-width:400px){
@@ -467,7 +629,7 @@ html{
     }
     .common-frame p:first-child{
         text-align: center;
-        margin-bottom: 1rem;
+        margin-bottom: 3rem;
     }
     .grid-box1 {
         grid-template-columns: 1fr 3fr;
@@ -488,5 +650,11 @@ html{
     }
     .philo h2 {
         font-size: 20px;
+    }
+}
+@media(max-width:300px){
+
+    .pop-txt h3 {
+        font-size: 1.2rem;
     }
 }
