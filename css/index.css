@@ -89,7 +89,6 @@ html{
 .resume{
     height: 100vh;
     background-color: #333;
-    padding-bottom: 3rem;
 }
 .resume-left figure{
     padding-top: 4rem;
@@ -391,6 +390,9 @@ html{
 .poster.pc h2+p{
     margin-bottom: 2rem;
 }
+.poster.mo .poster-list{
+    text-align: center;
+}
 .banner h2{
     font-size: 5rem;
 }
@@ -612,9 +614,31 @@ html{
     .pop-station {
         width: calc((100% - 1rem)/3 * 2);
     }
+    .hero h1 {
+        font-size: 4rem;
+    }
+    /* .c1 {
+        align-self: center;
+        padding-left: 0;
+    } */
 
 }
 
+@media (max-width:1510px){
+    .c1{
+        align-self: center;
+        padding-left: 0rem;
+    }
+    .c3{
+        align-self: center;
+    }
+    .txt-box {
+        display: flex;
+        flex-direction: column;
+        width: auto;
+        margin: 0 auto;
+    }
+}
 @media (max-width:1440px){
     html{
         font-size: var(--basic-font-pad);
@@ -893,10 +917,7 @@ html{
         aspect-ratio: 250/500;
         max-height: 500px;
     }
-    .poster.mo .poster-list figure{
-        aspect-ratio: 500/750;
-        max-height: 500px;
-    }
+
     .popup-contents{
         flex-direction: column-reverse;
     }
@@ -984,10 +1005,6 @@ html{
     }
     .philo h2 {
         font-size: 20px;
-    }
-    .poster.mo .poster-list figure{
-        aspect-ratio: 500/750;
-        max-height: 400px;
     }
         .pop-txt {
         width: 100%;
