@@ -218,7 +218,7 @@ html{
     display: flex; 
     align-items: center; 
     gap: 3rem; 
-    margin-top: 2rem; 
+    margin-top: 4rem; 
 }
 
 /* 텍스트 슬라이더 영역 */
@@ -254,7 +254,7 @@ html{
 }
 .pop-txt p { 
     font-size: .9rem; 
-    color: #aaa; 
+    color: #e2e2e2; 
     word-break: keep-all; 
 }
 
@@ -271,8 +271,8 @@ html{
 
 /* 이미지 슬라이드 기본 상태 (이전 슬라이드는 자동으로 이 상태가 됨) */
 .popup-img-slider .swiper-slide {
-    max-width: 500px; 
-    max-height: 500px;
+    /* max-width: 500px;  */
+    /* max-height: 500px; */
     transition: all 0.6s ease-in-out;
     overflow: hidden;
     opacity: 0;
@@ -417,7 +417,188 @@ html{
 .banner-txt p{
     flex: 1 ;
 }
+.thankyou{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: #333;
+}
+.thankyou .inner-box{
+    position: relative;
+    z-index: 3;
+    color: #fff;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.thankyou .inner-box h1{
+    font-weight: 800;
+    font-size: 4.5rem;
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+}
+.inner-sub{
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: 4rem;
+    letter-spacing: -0.2px;
+}
+.inner-name{
+    font-size: 0.85rem;
+    opacity: 0.9;
+    letter-spacing: 0.5px;
+}
+.detail{
+    margin-top: 6rem;
+    margin-bottom: 6rem;
+}
+.detail h2{
+    font-size:5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+.detail h2+p{
+    font-size:1rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+.detail h2+p+p{
+    margin-bottom: 3rem;
+    text-align: center;
+}
+.detail-swiper figure{
+    position: relative;
+    margin-bottom: 2rem;
+}
+.detail-swiper figure:hover img{
+    filter: brightness(0.4);
+}
+.detail-swiper figure:after{
+    color:#fff;
+    font-size:1.5rem;
+    font-weight: 700;
+    content:"click";
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    display: none;
+}
+.detail-swiper figure:hover:after{
+    display: block;
+}
+.detail-swiper figure:hover{
+    cursor: pointer;
+}
+.detail-swiper h4{
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
 
+.btn-close{
+    background-color: #fff;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:2.5rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.203);
+    position: sticky;
+    top:1rem;
+    left:50%;
+    transform: translateX(-50%);
+}
+.btn-close img{
+    height:1.2rem;
+}
+
+.btn-top{
+    cursor: pointer;
+    background-color: #fff;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:2.5rem;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.203);
+    position: sticky;
+    top:calc(100vh - 3.5rem);
+    left:50%;
+    transform: translateX(-50%);
+    margin-bottom: 3rem;
+}
+.btn-top img{
+    height:1.2rem;
+}
+
+
+.detail-title {
+    text-transform: uppercase;
+    font-weight: 900;
+    text-align: center;
+    font-size: calc(100vw/10);
+    margin-top: 4rem;
+    position: sticky;
+    top:38vh;
+    z-index: -1;
+}
+.detail-content{
+    text-align: center;
+    padding-bottom: 6rem;
+}
+.detail-content h3{
+    margin-top: 5rem;
+    margin-bottom: 1rem;
+    font-size:2rem;
+}
+.detail-content h2{
+    margin-bottom: 6rem;
+    font-size:3rem;
+    font-weight: 700;
+}
+.po{
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 4rem;
+    padding-bottom: 2rem;
+    position: relative;
+}
+.po:after{
+    content:"";
+    position:absolute;
+    width:1rem;
+    height:0.2rem;
+    background-color: #000;
+    left:50%;
+    bottom:0;
+    transform:translateX(-50%);
+}
+.detail-dl{
+    width:890px;
+    margin:0 auto;
+}
+.detail-dl dt{
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+.detail-dl dt span{
+    display: block;
+    margin-bottom: 0.5rem;
+}
+.detail-dl dd{
+    margin-bottom: 3rem;
+    line-height: 140%;
+}
 
 
 
@@ -473,14 +654,18 @@ html{
     .poster-item:nth-child(odd) {
         gap: 2rem;
     }
-    
+    .popup-img-slider img {
+        /* width: 400px; */
+        /* height: 400px; */
+        object-fit: cover;
+    }
 }
 @media (max-width:1200px){
     .pop-txt{ 
         width: calc((100% - 1rem)/2); 
     }
     .pop-station { 
-        width: calc((100% - 1rem)/2); 
+        width: 100%; 
     }
     .popup-contents{
         flex-direction: column-reverse;
@@ -566,11 +751,26 @@ html{
         flex-direction: column-reverse;
         gap: 2rem;
     }
+    .detail-dl{
+        width:auto;
+        margin:0 2rem;
+    }
+    .detail-content h2{
+        font-size:2rem;
+    }
+    .detail h2 {
+        font-size: 4rem;
+    }
 }
 
 @media(max-width:900px){
     .popup {
-        padding: 3rem 0;
+        /* padding: 3rem 0; */
+    }
+    .popup-img-slider img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 }
 
@@ -657,6 +857,7 @@ html{
     }
     .pop-txt{
         width: 100%;
+        max-height: 200px;
     }
     .popup h2 {
         font-size: 3rem;
@@ -709,8 +910,8 @@ html{
         padding-top: 5rem;
     }
     .pop-station {
-        width: 100vw; 
-        margin-left: calc(-3rem); /* common-frame의 좌측 마진만큼 왼쪽으로 당겨줌 */
+        /* width: 100vw;  */
+        /* margin-left: calc(-3rem);  */
         overflow: hidden;
     }
 
@@ -723,9 +924,29 @@ html{
 
     .popup-img-slider .swiper-slide {
         /* 이미지가 너무 크면 쏠려 보일 수 있으니 너비 지정 */
-        width: 300px; 
-        height: 300px;
-        margin: 0 auto; /* 슬라이드 자체의 중앙 정렬 보조 */
+        /* width: 300px;  */
+        /* height: 300px; */
+        /* margin: 0 auto;  */
+        text-align: center;
+    }
+    .popup-img-slider img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        max-width: 500px;
+    }
+    .detail-title{
+        font-size: calc(100vw/6);
+        line-height: 100%;
+    }
+    .detail h2{
+        font-size:2rem;
+    }
+    .detail h2+p{
+        font-size:1.3rem;
+    }
+    .thankyou .inner-box h1 {
+        font-size: 3rem;
     }
 }
 
@@ -768,21 +989,23 @@ html{
         aspect-ratio: 500/750;
         max-height: 400px;
     }
+        .pop-txt {
+        width: 100%;
+        max-height: 250px;
+    }
 }
 @media(max-width:300px){
 
     .pop-txt h3 {
         font-size: 1.2rem;
     }
-    .popup-img-slider .swiper-slide img{
-        border: 1px solid red;
+    /* .popup-img-slider .swiper-slide img{
         width: 280px; 
         height: 280px;
     }
     .popup-img-slider .swiper-slide{
         text-align: center;
-        border: 1px solid #fff;
         width: 280px; 
         height: 280px;
-    }
+    } */
 }

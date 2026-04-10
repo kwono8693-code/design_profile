@@ -244,7 +244,7 @@
         </div>
     </div>
     
-    </div>
+    <!-- </div> -->
 
     <!-- 팝업 이전 버전 -->
     <!-- <div class="popup">
@@ -456,15 +456,15 @@ document.addEventListener('DOMContentLoaded', function() {
         breakpoints: {
             // 769px 이상 (데스크탑/태블릿 가로)
             769: {
-                centeredSlides: true,
-                slidesPerView: "auto",
+                centeredSlides: false,
+                slidesPerView: 2,
                 spaceBetween: 50,
             },
             // 768px 이하 (모바일/태블릿 세로)
             0: {
                 centeredSlides: true,     // 반드시 중앙 정렬
-                slidesPerView: "auto",    // 슬라이드 너비를 CSS에서 가져옴
-                spaceBetween: 20,         // 모바일에서는 간격을 좁게
+                slidesPerView: 1,    // 슬라이드 너비를 CSS에서 가져옴
+                spaceBetween: 14,         // 모바일에서는 간격을 좁게
             }
         },
         on: {
@@ -685,13 +685,87 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
     </div>
 
-    <div class="detail">
+    <div class="detail" id="detail">
         <div class="common-frame">
-            <h2>Details</h2>
+            <h2 class="demi">Details</h2>
             <p>가상의 상품에 대한 상세 페이지를 Ai를 활용하여 디자인했습니다.</p>
             <div class="swiper detail-swiper">
-                <div class="swiper-wrapper"></div>
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <a href="./detail-1.html">
+                            <figure>
+                                <img src="./img/detail-lotion-thumb.jpg" alt="로션 디테일페이지 섬네일">
+                            </figure>
+                            <h4>LUMERIA</h4>
+                            <h5 class="fwb">기획부터 비주얼 완성까지, 직접 설계한 루메리아 상세페이지</h5>
+                        </a>
+                    </div>
+                    
+                    <div class="swiper-slide">
+                        <a href="./detail-2.html">
+                            <figure>
+                                <img src="./img/detail-headset-thumb.jpg" alt="헤드셋 디테일페이지 섬네일">
+                            </figure>
+                            <h4>SONY</h4>
+                            <h5 class="fwb">소리의 본질에 집중한 기획과 비주얼, Sony 상세페이지</h5>
+                        </a>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <a href="./detail-3.html">
+                            <figure>
+                                <img src="./img/detail-chair-thumb.jpg" alt="의자 디테일페이지 섬네일">
+                            </figure>
+                            <h4>SIDIZ</h4>
+                            <h5 class="fwb">인체공학적 설계와 기계적 구조의 시각화, T20 테크니컬 상세페이지</h5>
+                        </a>
+                    </div>
+                </div>
             </div>
+            <script>
+                const detailSwiper = new Swiper(".detail-swiper",{
+                    speed:1000,
+                    slidesPerView: 1.2,
+                    spaceBetween: 14,
+                    // Responsive breakpoints
+                    breakpoints: {
+                        // when window width is >= 320px
+                        320: {
+                        slidesPerView: 1.6,
+                        spaceBetween: 14
+                        },
+                        // when window width is >= 480px
+                        480: {
+                        slidesPerView: 1.6,
+                        spaceBetween: 14
+                        },
+                        // when window width is >= 640px
+                        1200: {
+                        slidesPerView: 2.2,
+                        spaceBetween: 20
+                        },
+                        1400: {
+                        slidesPerView: 3,
+                        spaceBetween: 20
+                        },
+                    }
+                })
+            </script>
+        </div>
+    </div>
+
+    <div class="thankyou">
+        <div class="inner-box">
+            <h1 class="demi">
+                Thank you for <br>
+                viewing my portfolio
+            </h1>
+            <p class="inner-sub">
+                "왜?"라는 질문에 납득할 수 있게 디자인하겠습니다.
+            </p>
+            <p class="inner-name">
+                UI/UX & Web Designer 권오영
+            </p>
         </div>
     </div>
 </body>
