@@ -203,51 +203,105 @@ html{
     margin-bottom: 8rem;
 }
 
-.popup {
-    padding: 2rem 0;
-    color: #fff;
-    margin-bottom: 5rem;
+/* 섹션 전체 레이아웃 */
+.popup { 
+    padding: 5rem 0; 
+    overflow: hidden; 
     background-color: #333;
+    color: #fff;
 }
 .popup h2{
     font-size: 5rem;
     margin-bottom: .5rem;
 }
-.popup h2+p{
-    margin-bottom: 3rem;
-}
-.popup-contents{
-    display: flex;
-    gap: 8rem;
-}
-.pop-txt {
-    width: 450px;
-    color: #fff;
-    align-self: center;
-}
-.pop-station{
-    width: calc(100% - 430px - 177px);
-}
-.pop-txt h3{
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-    font-weight: 700;
-}
-.pop-txt h3+p{
-    font-size: .9rem;
-    margin-bottom: 1rem;
-}
-.pop-txt h3+p+p {
-    font-size: .9rem;
-}
-.popup-img-slider .swiper-wrapper{
-    transition-timing-function: linear;
+.popup-contents { 
+    display: flex; 
+    align-items: center; 
+    gap: 3rem; 
+    margin-top: 2rem; 
 }
 
-.popup-txt-slider .swiper-slide{
-    background-color: #333;
-    height: 100%;
+/* 텍스트 슬라이더 영역 */
+.pop-txt { 
+    max-width: 450px; 
+    flex-shrink: 0; 
+    position: relative; 
 }
+
+.popup-txt-slider { 
+    width: 100%; 
+    height: 300px; 
+}
+
+.popup-txt-slider .swiper-slide { 
+    background: #333; 
+    opacity: 0 !important; 
+    transition: opacity 0.5s; 
+}
+
+.popup-txt-slider .swiper-slide-active { 
+    opacity: 1 !important; 
+}
+
+.pop-txt h3 { 
+    font-size: 1.2rem; 
+    font-weight: 700; 
+    margin-bottom: 1rem; 
+    word-break: keep-all; 
+}
+.pop-txt h3 +p{
+    margin-bottom: .5rem;
+}
+.pop-txt p { 
+    font-size: .9rem; 
+    color: #aaa; 
+    word-break: keep-all; 
+}
+
+/* 이미지 슬라이더 영역 */
+.pop-station { 
+    flex-grow: 1; 
+    min-width: 0; 
+    position: relative; 
+}
+
+.popup-img-slider { 
+    overflow: visible !important; 
+}
+
+/* 이미지 슬라이드 기본 상태 (이전 슬라이드는 자동으로 이 상태가 됨) */
+.popup-img-slider .swiper-slide {
+    max-width: 500px; 
+    max-height: 500px;
+    transition: all 0.6s ease-in-out;
+    overflow: hidden;
+    opacity: 0;
+    filter: blur(20px);
+    transform: scale(0.8);
+}
+
+/* 활성화된(중앙) 이미지 상태 */
+.popup-img-slider .swiper-slide-active {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+    z-index: 10;
+}
+
+/* 다음에 올 슬라이드 상태 */
+.popup-img-slider .swiper-slide-next {
+    opacity: 0.3;
+    filter: blur(8px);
+    transform: scale(0.9);
+    display: block; 
+}
+
+.popup-img-slider img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+}
+
 .poster-item {
     display: flex;
     align-items: center;
@@ -266,15 +320,15 @@ html{
     flex-direction: row-reverse;
 }
 .poster-item:nth-child(even) .poster-txt{
-    padding-right: 0;
 }
 .poster-item:nth-child(odd) .poster-img{
-    /* justify-items: flex-start; */
+    justify-items: flex-start;
 }
 .poster-item:nth-child(odd){
+    gap: 0;
 }
 .poster-item:nth-child(odd) .poster-txt{
-    flex: 1.2;
+    /* flex: 1.2; */
 }
 
 /* 화면 중앙에 들어올 때 나타나는 클래스 */
@@ -285,6 +339,7 @@ html{
 
 /* 이미지 영역 */
 .poster-img {
+    flex: 1;
     justify-items: center;
     flex-shrink: 0;
 }
@@ -298,15 +353,14 @@ html{
 .poster-txt {
     flex: 1.2;
     justify-self: center;
-    padding-right: 10rem;
 
 }
 .poster-txt h3 {
-    font-size: 2.8rem;
-    margin-bottom: 25px;
+    font-size: 2rem;
+    margin-bottom: 1rem;
     font-weight: 800;
     color: #111;
-    word-break: keep-all;
+    /* word-break: keep-all; */
 }
 .poster-txt p {
     font-size: 1rem;
@@ -363,6 +417,10 @@ html{
 .banner-txt p{
     flex: 1 ;
 }
+
+
+
+
 @media (max-width:1600px){
     .popup-contents{
         gap: 4rem;
@@ -412,6 +470,9 @@ html{
     .pop-txt {
         width: calc((100% - 1rem)/3);
     }
+    .poster-item:nth-child(odd) {
+        gap: 2rem;
+    }
     
 }
 @media (max-width:1200px){
@@ -421,9 +482,11 @@ html{
     .pop-station { 
         width: calc((100% - 1rem)/2); 
     }
-
-    .popup-contents {
-        gap: 2rem;
+    .popup-contents{
+        flex-direction: column-reverse;
+    }
+    .pop-txt {
+        align-self: flex-start;
     }
 }
 @media(max-width:1024px){
@@ -488,6 +551,20 @@ html{
     }
     .banner h2 {
         font-size: 4rem;
+    }
+    .poster-txt h3 {
+        font-size: 2rem;
+    }
+    .poster-item {
+        gap: 2rem;
+    }
+    
+    .poster-item {
+        margin-bottom: 12rem;
+    }
+    .popup-contents{
+        flex-direction: column-reverse;
+        gap: 2rem;
     }
 }
 
@@ -581,9 +658,6 @@ html{
     .pop-txt{
         width: 100%;
     }
-    .pop-station{
-        width: 100%;
-    }
     .popup h2 {
         font-size: 3rem;
     }
@@ -613,6 +687,45 @@ html{
     .banner-txt{
         flex-direction: column;
         gap: .5rem;
+    }
+    .poster-img{
+        aspect-ratio: 250/500;
+        max-height: 500px;
+    }
+    .poster.mo .poster-list figure{
+        aspect-ratio: 500/750;
+        max-height: 500px;
+    }
+    .popup-contents{
+        flex-direction: column-reverse;
+    }
+    .pop-station {
+        align-self: center;
+        width: 100%;
+    }
+    .popup{
+        margin-bottom: 5rem;
+        padding: 0;
+        padding-top: 5rem;
+    }
+    .pop-station {
+        width: 100vw; 
+        margin-left: calc(-3rem); /* common-frame의 좌측 마진만큼 왼쪽으로 당겨줌 */
+        overflow: hidden;
+    }
+
+    /* 스위퍼 자체의 위치 고정 */
+    .popup-img-slider {
+        width: 100%;
+        margin: 0 auto;
+        overflow: visible !important; /* 다음 슬라이드 블러 효과를 위해 필수 */
+    }
+
+    .popup-img-slider .swiper-slide {
+        /* 이미지가 너무 크면 쏠려 보일 수 있으니 너비 지정 */
+        width: 300px; 
+        height: 300px;
+        margin: 0 auto; /* 슬라이드 자체의 중앙 정렬 보조 */
     }
 }
 
@@ -651,10 +764,25 @@ html{
     .philo h2 {
         font-size: 20px;
     }
+    .poster.mo .poster-list figure{
+        aspect-ratio: 500/750;
+        max-height: 400px;
+    }
 }
 @media(max-width:300px){
 
     .pop-txt h3 {
         font-size: 1.2rem;
+    }
+    .popup-img-slider .swiper-slide img{
+        border: 1px solid red;
+        width: 280px; 
+        height: 280px;
+    }
+    .popup-img-slider .swiper-slide{
+        text-align: center;
+        border: 1px solid #fff;
+        width: 280px; 
+        height: 280px;
     }
 }
