@@ -1,6 +1,7 @@
 html{
     font-family: 'Pretendard', sans-serif;
     font-size: var(--basic-font-pc);
+    scroll-behavior: smooth;
 }
 ::-webkit-scrollbar{
     width: 10px;
@@ -8,9 +9,62 @@ html{
 }
 ::-webkit-scrollbar-thumb{
     background: #333;
+    border-radius: 20%;
 }
 ::-webkit-scrollbar-track{
     background-color: #fff;
+}
+header{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 10000;
+    opacity: 1;
+    pointer-events: auto;
+}
+header.pc .gnb {
+    /* 부드러운 변화를 위해 추가 */
+    transition: opacity 0.3s ease;
+    opacity: 1; /* 초기 상태 */
+}
+header.pc .gnb.scrolled {
+    opacity: 0.5; /* 원하는 투명도 수치로 조절하세요 */
+}
+
+/* 마우스를 올렸을 때는 다시 선명하게 (사용성 고려) */
+header.pc .gnb.scrolled:hover {
+    opacity: 1;
+}
+
+
+header .common-frame{
+    padding:  1rem;
+}
+.gnb{
+    display: inline-flex;
+    gap: 3rem;
+    font-size: 0.7rem;
+    font-weight: 500;
+    background-color: #333;
+    backdrop-filter: blur(10px);
+    color: #fff;
+    list-style: none;
+    text-decoration: none;
+    padding: 0.25rem 1rem;
+    border-radius: 100px;
+    align-items: center;
+    min-height: 30px;
+    flex-wrap: nowrap;
+}
+.gnb li{
+    flex-shrink: 0;
+}
+.smart-header{
+    display: none;
+}
+.smart-menu{
+    display: none;
 }
 .mo{
     display: none;
@@ -447,7 +501,7 @@ html{
 .inner-sub{
     font-size: 0.9rem;
     opacity: 0.8;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
     letter-spacing: -0.2px;
 }
 .inner-name{
@@ -601,6 +655,164 @@ html{
     margin-bottom: 3rem;
     line-height: 140%;
 }
+.project .common-frame{
+    margin-bottom: 6rem;
+}
+.project h2{
+    font-size:5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+.project h2+p{
+    font-size:1rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+.ptitle{
+    margin: 4rem 0 2rem;
+    text-align: center;
+    font-weight: 700;
+}
+.responsive-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+}
+.responsive-icon li{
+    flex: 1;
+}
+.responsive-icon h5{
+    font-weight: 700;
+    margin-top: 1rem;
+    margin-bottom: .25rem;
+    text-transform: uppercase;
+}
+.project-content{
+    background-color: #DFDFDF;
+    padding-top: 6rem;
+    text-align: center;
+}
+.project-content h3{
+    font-weight: 700;
+    display: inline-flex;
+    flex-direction: column;
+    gap: .25rem;
+    margin-bottom: 3rem;
+}
+.project-content h4{
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: .5rem;
+}
+.project-content h4+p{
+
+}
+.project-sticky{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 3rem 0;
+    position: sticky;
+    top: 5rem;
+    font-weight: 500;
+}
+.project-sticky a{
+    display: block;
+    padding: .5rem 1.5rem;
+    font-size: .8rem;
+    background-color: #333;
+    color: #fff;
+    border-radius: 100px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.project-sticky a:hover{
+    background-color: #fff;
+    color: #333;
+}
+.smart-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 1rem;
+    left: 0;
+    z-index: 2000;
+}
+.btn-menu{
+    width: 2rem;
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #333;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    z-index: 1000;
+}
+.btn-close-menu{
+    width: 2rem;
+    aspect-ratio: 1/1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: #333;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    z-index: 3000;
+}
+
+.smart-menu{
+    position: fixed;
+    z-index: 1000;
+    left: 0rem;
+    top: 0rem;
+    bottom: 0rem;
+    right: 0rem;
+    background-color: #3a3a3acb;
+    color: #fff;
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+    opacity: 0;
+    transition: all .5s ease 0s;
+    pointer-events: none;
+}
+.smart-menu.on{
+    opacity: 1;
+    pointer-events: auto;
+}
+.gnb-smart{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.btn-close-menu img{
+    height: 1rem;
+}
+.btn-menu img{
+    height: 1rem;
+}
+
+.smart-header{
+    display: none;
+}
+
+
+
+
 
 
 
@@ -785,6 +997,9 @@ html{
     .detail h2 {
         font-size: 4rem;
     }
+    .project h2 {
+        font-size: 4rem;
+    }
 }
 
 @media(max-width:900px){
@@ -795,6 +1010,10 @@ html{
         width: 100%;
         height: 100%;
         object-fit: cover;
+    }
+    .gnb{
+        gap: 2rem;
+        font-size: .6rem;
     }
 }
 
@@ -886,9 +1105,7 @@ html{
     .popup h2 {
         font-size: 3rem;
     }
-    .pop-txt h3+p {
-        font-size: 1rem;
-    }
+
     .poster h2{
         font-size: 3rem;
     }
@@ -964,10 +1181,31 @@ html{
         font-size:2rem;
     }
     .detail h2+p{
-        font-size:1.3rem;
+        font-size:1rem;
     }
     .thankyou .inner-box h1 {
         font-size: 3rem;
+    }
+    .project h2{
+        font-size: 2rem;
+    }
+    .project h2+p{
+        font-size: 1rem;
+    }
+    .responsive-icon{
+        width: auto;
+    }
+    .project-content h4 {
+        font-size: 2rem;
+    }
+    .smart-menu{
+        display: flex;
+    }
+    .project-sticky {
+        top: 3rem;
+    }
+    .smart-header{
+        display: flex;
     }
 }
 
@@ -1009,6 +1247,16 @@ html{
         .pop-txt {
         width: 100%;
         max-height: 250px;
+    }
+    .thankyou .inner-box h1 {
+        font-size: 2rem;
+    }
+    .banner-txt h3 {
+        margin-bottom: .5rem;
+        margin-top: 1rem;
+    }
+    .banner h2+p {
+        margin-bottom: 2rem;
     }
 }
 @media(max-width:300px){
