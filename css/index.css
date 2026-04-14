@@ -1,3 +1,10 @@
+@media (min-width:2000px){
+    html{
+        width: 1920xp;
+        margin: 0 auto;
+    }
+}
+
 html{
     font-family: 'Pretendard', sans-serif;
     font-size: var(--basic-font-pc);
@@ -695,6 +702,16 @@ header .common-frame{
     background-color: #DFDFDF;
     padding-top: 6rem;
     text-align: center;
+}
+.projectype2{
+    background-color: #7E8F7C;
+    color: #fff;
+}
+.project-detail{
+    line-height: 0;
+}
+.project-detail img{
+    width: 100%;
 }
 .project-content h3{
     font-weight: 700;
