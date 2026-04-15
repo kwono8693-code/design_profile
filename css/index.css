@@ -1,6 +1,6 @@
 @media (min-width:2000px){
     html{
-        width: 1920xp;
+        width: 1920px;
         margin: 0 auto;
     }
 }
@@ -451,9 +451,7 @@ header .common-frame{
 .poster.pc h2+p{
     margin-bottom: 2rem;
 }
-.poster.mo .poster-list{
-    text-align: center;
-}
+
 .banner h2{
     font-size: 5rem;
 }
@@ -745,6 +743,7 @@ header .common-frame{
     color: #fff;
     border-radius: 100px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    min-width: 40px;
 }
 .project-sticky a:hover{
     background-color: #fff;
@@ -1239,7 +1238,7 @@ header .common-frame{
     }
     .common-frame p:first-child{
         text-align: center;
-        margin-bottom: 3rem;
+        margin-bottom: 2rem;
     }
     .grid-box1 {
         grid-template-columns: 1fr 3fr;

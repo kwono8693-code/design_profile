@@ -9,8 +9,10 @@ document.addEventListener("DOMContentLoaded",()=>{
     }
 
     // 스티커 제목 연해지기
-    const detailTitle = document.querySelector(".detail-title")
-    window.addEventListener("scroll",()=>{
+const detailTitle = document.querySelector(".detail-title")
+if(detailTitle) {
+
+        window.addEventListener("scroll",()=>{
         let windowHeight = window.innerHeight
         let scrollValue = window.scrollY
         console.log(scrollValue)
@@ -18,7 +20,7 @@ document.addEventListener("DOMContentLoaded",()=>{
         opacity = Math.max(0.1, Math.min(1, opacity))
         detailTitle.style.opacity = opacity
     })
-
+}
     // 전체 메뉴 버튼
     const btnMenu = document.querySelector(".btn-menu")
     const smartMenu = document.querySelector(".smart-menu")

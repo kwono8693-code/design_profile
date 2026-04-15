@@ -24,6 +24,7 @@ html{
 }
 .profile{
     margin: 5rem 0;
+    text-align: center;
 }
 .demi{
     font-family: "demi";
@@ -161,6 +162,9 @@ html{
 .common-frame {
     position: relative;
     z-index: 1;
+}
+.skills{
+    margin-top: 5rem;
 }
 .skills h1{
     font-size: 5rem;
