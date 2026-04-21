@@ -148,8 +148,8 @@ header .common-frame{
     margin-bottom: 1rem;
 }
 .resume{
-    height: 100vh;
     background-color: #333;
+    padding-bottom: 3rem;
 }
 .resume-left figure{
     padding-top: 4rem;
